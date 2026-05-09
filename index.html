@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanHome Services - Professional Home Cleaning Services</title>
+    <meta name="description" content="CleanHome Services - Professional home cleaning services. House, car, office cleaning. Book online in 2 clicks. Excellence and cleanliness guaranteed.">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <h1>🧽 CleanHome Services</h1>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#features">Why Us</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="hamburger" id="hamburger-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <button id="booking-btn" onclick="ouvrirCartModal()" style="font-size: 0.9em;">🛒 Cart</button>
+            <span class="cart-badge" style="display: none;">0</span>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-nav-links">
+                <a href="#services" onclick="toggleMobileMenu()">Services</a>
+                <a href="#about" onclick="toggleMobileMenu()">About</a>
+                <a href="#testimonials" onclick="toggleMobileMenu()">Testimonials</a>
+                <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>CleanHome Services</h2>
+            <p class="hero-subtitle">Excellence in Home Cleaning</p>
+            <p style="color: white; font-size: 1.2em; margin-bottom: 30px;">More than cleaning, an immersive and refined cleanliness experience</p>
+            <button class="btn" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Discover Our Services</button>
+        </div>
+    </section>
+
+    
+    <section id="services" class="services container">
+        <h2>OUR SERVICES</h2>
+        <p class="subtitle">Excellence in Cleanliness</p>
+
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=400&h=250&fit=crop" alt="Standard Home Cleaning" width="100%" height="200px">
+                <div class="service-content">
+                    <div class="service-icon">🏠</div>
+                    <h3>Standard Home Cleaning</h3>
+                    <p>Complete interior cleaning: floors, surfaces, dust, bathroom and kitchen. Professional deep cleaning service.</p>
+                    <div class="service-price">$50</div>
+                    <button class="btn-add-to-cart" onclick="ajouterAuPanier(1)">Add to Cart</button>
+                </div>
+            </div>
+
+            
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c9f188?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=400&h=250&fit=crop" alt="Complete Car Cleaning">
+                <div class="service-content">
+                    <div class="service-icon">🚗</div>
+                    <h3>Complete Car Cleaning</h3>
+                    <p>Exterior wash, complete interior cleaning, vacuuming, windows and professional finishing touches.</p>
+                    <div class="service-price">$30</div>
+                    <button class="btn-add-to-cart" onclick="ajouterAuPanier(2)">Add to Cart</button>
+                </div>
+            </div>
+
+            
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=400&h=250&fit=crop" alt="Office Cleaning">
+                <div class="service-content">
+                    <div class="service-icon">🏢</div>
+                    <h3>Office Cleaning</h3>
+                    <p>Professional cleaning for workspaces: desks, floors, restrooms and common areas. Commercial cleaning service.</p>
+                    <div class="service-price">$80</div>
+                    <button class="btn-add-to-cart" onclick="ajouterAuPanier(3)">Add to Cart</button>
+                </div>
+            </div>
+
+            
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=400&h=250&fit=crop" alt="Deep Kitchen Cleaning">
+                <div class="service-content">
+                    <div class="service-icon">🍳</div>
+                    <h3>Deep Kitchen Cleaning</h3>
+                    <p>Thorough kitchen cleaning: appliances, cabinets, countertops, oven and refrigerator. Specialized cleaning service.</p>
+                    <div class="service-price">$60</div>
+                    <button class="btn-add-to-cart" onclick="ajouterAuPanier(4)">Add to Cart</button>
+                </div>
+            </div>
+
+            
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=400&h=250&fit=crop" alt="Bathroom Deep Clean">
+                <div class="service-content">
+                    <div class="service-icon">🛁</div>
+                    <h3>Bathroom Deep Clean</h3>
+                    <p>Complete bathroom sanitization: tiles, fixtures, shower, toilet and mirrors. Disinfection and detailing service.</p>
+                    <div class="service-price">$40</div>
+                    <button class="btn-add-to-cart" onclick="ajouterAuPanier(5)">Add to Cart</button>
+                </div>
+            </div>
+
+            
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=400&h=250&fit=crop" alt="Move In/Out Cleaning">
+                <div class="service-content">
+                    <div class="service-icon">📦</div>
+                    <h3>Move In/Out Cleaning</h3>
+                    <p>Comprehensive cleaning for moving: deep clean all rooms, appliances, and surfaces. Perfect for property transitions.</p>
+                    <div class="service-price">$120</div>
+                    <button class="btn-add-to-cart" onclick="ajouterAuPanier(6)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="services-footer">
+            <button class="btn-outline" onclick="ouvrirAllServices()">View All Services & Pricing</button>
+        </div>
+    </section>
+
+    
+    <section id="about" class="container">
+        <div class="about">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=500&h=400&fit=crop" alt="CleanHome Services Professional Team">
+            </div>
+            <div class="about-content">
+                <h3>Who We Are</h3>
+                <p>CleanHome Services is more than just a cleaning service. We are a dedicated team committed to your cleanliness, combining professional techniques and eco-friendly products to offer you a unique experience.</p>
+                <p>Every space is unique. Our team of qualified professionals guarantees you an excellent service in an atmosphere of trust and satisfaction.</p>
+
+                <h3 style="margin-top: 30px; color: var(--primary-blue);">Our Commitment</h3>
+                <ul class="about-features">
+                    <li>Recognized expertise since 2025</li>
+                    <li>Qualified and attentive team</li>
+                    <li>Eco-friendly products and methods</li>
+                    <li>100% satisfaction guarantee</li>
+                    <li>Flexible scheduling</li>
+                    <li>Competitive pricing</li>
+                </ul>
+
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Cleaned Properties</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5★</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>TESTIMONIALS</h2>
+            <p class="subtitle">They Trust Us</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Impeccable service! My apartment has never been so clean. The team is professional, punctual and uses quality products. I highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.1.0&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200" alt="Marie D.">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Marie D.</div>
+                            <div class="testimonial-role">Loyal Customer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Excellent car cleaning service. My BMW shines like new! The staff is courteous and attentive. Easy online booking, I'm thrilled."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.1.0&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200" alt="Jean B.">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Jean B.</div>
+                            <div class="testimonial-role">Regular Client</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"For our office, CleanHome Services is perfect! Regular cleaning, serious team and competitive prices. Our workspace is always impeccable."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.1.0&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200" alt="Sophie M.">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Sophie M.</div>
+                            <div class="testimonial-role">Business Owner</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Outstanding deep cleaning service! They transformed our entire house. Professional, thorough, and worth every penny. Will definitely book again!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.1.0&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200" alt="David L.">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">David L.</div>
+                            <div class="testimonial-role">Homeowner</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The move-in cleaning service was exceptional. They cleaned every nook and cranny. Our new home feels brand new. Highly professional team!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.1.0&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200" alt="Emma R.">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Emma R.</div>
+                            <div class="testimonial-role">New Homeowner</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Reliable and consistent service. They clean our restaurant weekly and the results are always outstanding. Great attention to detail!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.1.0&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200" alt="Michael T.">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Michael T.</div>
+                            <div class="testimonial-role">Restaurant Owner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="features" class="features">
+        <div class="container">
+            <h2>WHY CHOOSE CLEANHOME?</h2>
+            <p class="subtitle">What Makes Us Different</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Quick response and efficient service. We respect your time and deliver results in record time.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>100% Satisfaction</h3>
+                    <p>We guarantee complete satisfaction or your money back. Quality service is our promise.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Eco-Friendly</h3>
+                    <p>We use environmentally friendly products that are safe for your family and pets.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Expert Team</h3>
+                    <p>Our professionals are trained, insured, and background-checked for your peace of mind.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Easy Booking</h3>
+                    <p>Book online 24/7 with our user-friendly platform. Instant confirmation and updates.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>Premium Quality</h3>
+                    <p>We don't cut corners. Only the best equipment and techniques for exceptional results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>CONTACT US</h2>
+            <p class="subtitle">Get In Touch</p>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Port-au-Prince, Haiti</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+509 42 00 00 00</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@cleanhome.ht</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon-Sat: 7AM-7PM<br>Sun: By Appointment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="contactName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contactEmail" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="contactPhone" placeholder="Your Phone (optional)">
+                        </div>
+                        <div class="form-group">
+                            <select id="contactService" required>
+                                <option value="">Select Service</option>
+                                <option value="home">Home Cleaning</option>
+                                <option value="car">Car Cleaning</option>
+                                <option value="office">Office Cleaning</option>
+                                <option value="deep">Deep Cleaning</option>
+                                <option value="moving">Move In/Out</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contactMessage" placeholder="Tell us about your cleaning needs..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CleanHome Services</h4>
+                    <p>Excellence in home cleaning. A service dedicated to your cleanliness, combining professional techniques and eco-friendly products.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">💼</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li>Home Cleaning</li>
+                        <li>Car Detailing</li>
+                        <li>Office Cleaning</li>
+                        <li>Deep Cleaning</li>
+                        <li>Move In/Out</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>📍 Port-au-Prince, Haiti</li>
+                        <li>📞 +509 42 00 00 00</li>
+                        <li>📧 info@cleanhome.ht</li>
+                        <li>🕒 Mon-Sat: 7AM-7PM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 CleanHome Services. All rights reserved. | Made with ❤️ for clean homes</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <div id="cart-modal-overlay" class="modal-overlay">
+        <div id="cart-modal" class="modal">
+            <div class="modal-header">
+                <h2>📋 Your Booking</h2>
+                <button class="close-modal" onclick="fermerCartModal()">✕</button>
+            </div>
+
+            <div class="cart-list"></div>
+
+            <div class="cart-summary"></div>
+
+            <div class="contact-section">
+                <h3>📧 Contact Information</h3>
+                <div class="contact-form">
+                    <input type="email" id="client-email" placeholder="Your email (optional)" class="contact-input">
+                    <input type="text" id="client-name" placeholder="Your name (optional)" class="contact-input">
+                </div>
+            </div>
+
+            <div class="payment-section">
+                <h3>💳 Payment Method</h3>
+                <div class="payment-methods">
+                    <label class="payment-option selected">
+                        <div class="payment-option-icon">💻</div>
+                        <div>Online Payment</div>
+                        <input type="radio" name="payment" value="online" checked onchange="selectionnerPaiement('online', event)">
+                    </label>
+                    <label class="payment-option">
+                        <div class="payment-option-icon">💵</div>
+                        <div>Cash on Delivery</div>
+                        <input type="radio" name="payment" value="cash" onchange="selectionnerPaiement('cash', event)">
+                    </label>
+                </div>
+            </div>
+
+            <div class="important-message">
+                <strong>📞 Important:</strong> After confirmation, our team will contact you to schedule the service.
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-confirm" onclick="confirmerReservation()">✅ Confirm Booking</button>
+                <button class="btn-cancel" onclick="fermerCartModal()">❌ Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="services-modal-overlay" class="modal-overlay">
+        <div id="services-modal" class="modal services-modal">
+            <div class="modal-header">
+                <h2>📋 All Services</h2>
+                <button class="close-modal" onclick="fermerAllServices()">✕</button>
+            </div>
+
+            <div class="services-list">
+                
+                <div class="services-section-title">🏠 Home Cleaning</div>
+                
+                <div class="service-item">
+                    <div class="service-item-icon">🏠</div>
+                    <div class="service-item-info">
+                        <h4>Standard Home Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">5000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(1)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">🏡</div>
+                    <div class="service-item-info">
+                        <h4>Nettoyage Maison Complet</h4>
+                    </div>
+                    <div class="service-item-price">8000 USD</div>
+<button class="service-item-btn" onclick="ajouterAuPanier(2)">+</button>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-item-icon">🧹</div>
+                    <div class="service-item-info">
+                        <h4>Apartment Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">4000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(3)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">✨</div>
+                    <div class="service-item-info">
+                        <h4>Deep Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">10000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(4)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">🪟</div>
+                    <div class="service-item-info">
+                        <h4>Window Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">3000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(5)">+</button>
+                </div>
+
+                
+                <div class="services-section-title">🚗 NETTOYAGE VOITURE</div>
+                
+                <div class="service-item">
+                    <div class="service-item-icon">🚗</div>
+                    <div class="service-item-info">
+                        <h4>Exterior Car Wash</h4>
+                    </div>
+                    <div class="service-item-price">2000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(6)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">✨</div>
+                    <div class="service-item-info">
+                        <h4>Interior Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">2500 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(7)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">💎</div>
+                    <div class="service-item-info">
+                        <h4>Complete Car Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">4000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(8)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">🧽</div>
+                    <div class="service-item-info">
+                        <h4>Seat Shampooing</h4>
+                    </div>
+                    <div class="service-item-price">3000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(9)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">🧴</div>
+                    <div class="service-item-info">
+                        <h4>Wax & Protection</h4>
+                    </div>
+                    <div class="service-item-price">2500 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(10)">+</button>
+                </div>
+
+                
+                <div class="services-section-title">🏢 NETTOYAGE BUREAU</div>
+                
+                <div class="service-item">
+                    <div class="service-item-icon">🏢</div>
+                    <div class="service-item-info">
+                        <h4>Standard Office Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">6000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(11)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">🧹</div>
+                    <div class="service-item-info">
+                        <h4>Office Washroom Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">2500 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(12)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">🪟</div>
+                    <div class="service-item-info">
+                        <h4>Office Window Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">4000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(13)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">🧴</div>
+                    <div class="service-item-info">
+                        <h4>Complete Disinfection</h4>
+                    </div>
+                    <div class="service-item-price">3500 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(14)">+</button>
+                </div>
+
+                
+                <div class="services-section-title">🛠️ AUTRES SERVICES</div>
+                
+                <div class="service-item">
+                    <div class="service-item-icon">🧽</div>
+                    <div class="service-item-info">
+                        <h4>Post-Construction Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">7000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(15)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">🧴</div>
+                    <div class="service-item-info">
+                        <h4>Move Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">6000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(16)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">✨</div>
+                    <div class="service-item-info">
+                        <h4>Event Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">8000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(17)">+</button>
+                </div>
+
+                
+                <div class="services-section-title">👑 FORFAITS COMBINÉS</div>
+                
+                <div class="service-item">
+                    <div class="service-item-icon">👑</div>
+                    <div class="service-item-info">
+                        <h4>Home + Car Package</h4>
+                        <small style="color: #888; font-size: 0.85em;">(Full home + car cleaning)</small>
+                    </div>
+                    <div class="service-item-price">12000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(18)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">💎</div>
+                    <div class="service-item-info">
+                        <h4>Premium Package</h4>
+                        <small style="color: #888; font-size: 0.85em;">(Home + Car + Windows)</small>
+                    </div>
+                    <div class="service-item-price">15000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(19)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">🧽</div>
+                    <div class="service-item-info">
+                        <h4>Complete Office Package</h4>
+                        <small style="color: #888; font-size: 0.85em;">(Office + Restrooms + Disinfection)</small>
+                    </div>
+                    <div class="service-item-price">10000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(20)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">🌟</div>
+                    <div class="service-item-info">
+                        <h4>All-Inclusive Package</h4>
+                        <small style="color: #888; font-size: 0.85em;">(All premium services included)</small>
+                    </div>
+                    <div class="service-item-price">20000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(21)">+</button>
+                </div>
+
+                
+                <div class="services-section-title">⭐ SERVICES SPÉCIAUX</div>
+                
+                <div class="service-item">
+                    <div class="service-item-icon">🧴</div>
+                    <div class="service-item-info">
+                        <h4>Curtains & Fabric Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">2500 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(22)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">✂️</div>
+                    <div class="service-item-info">
+                        <h4>Carpet Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">3500 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(23)">+</button>
+                </div>
+
+                
+                <div class="services-section-title">🛠️ SERVICES SUPPLÉMENTAIRES</div>
+                
+                <div class="service-item">
+                    <div class="service-item-icon">🎨</div>
+                    <div class="service-item-info">
+                        <h4>Terrace/Balcony Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">4000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(24)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">💆</div>
+                    <div class="service-item-info">
+                        <h4>Outdoor Garden Cleaning</h4>
+                    </div>
+                    <div class="service-item-price">5000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(25)">+</button>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-icon">💇</div>
+                    <div class="service-item-info">
+                        <h4>Emergency Service</h4>
+                        <small style="color: #888; font-size: 0.85em;">(24h rapid response)</small>
+                    </div>
+                    <div class="service-item-price">8000 USD</div>
+                    <button class="service-item-btn" onclick="ajouterAuPanier(26)">+</button>
+                </div>
+            </div>
+
+            <div class="services-modal-footer">
+                <p>✨ Tous nos services incluent une consultation personnalisée et des produits écologiques.</p>
+                <button class="btn" onclick="fermerAllServices(); ouvrirCartModal();">Réserver maintenant</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="floating-buttons">
+        <a href="https://wa.me/50937000000" target="_blank" class="btn-floating" id="whatsapp-btn" title="WhatsApp">
+            💬
+        </a>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
