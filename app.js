@@ -101,10 +101,12 @@ function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
     const hamburger = document.getElementById('hamburger-menu');
-    
-    mobileMenu.classList.toggle('active');
+    const isOpen = mobileMenu.classList.toggle('active');
+
     mobileMenuOverlay.classList.toggle('active');
     hamburger.classList.toggle('active');
+    document.body.classList.toggle('no-scroll', isOpen);
+    mobileMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
 }
 
 
