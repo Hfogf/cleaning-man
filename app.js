@@ -1,10 +1,10 @@
 let panier = JSON.parse(localStorage.getItem('cleanhome_panier')) || [];
 let selectedPayment = 'online';
-let services = []; // Will be loaded from localStorage or default values
+let services = [];
 
 
 (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    emailjs.init("YOUR_PUBLIC_KEY"); 
 })();
 
 
@@ -44,21 +44,34 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            try {
+                const submitBtn = document.querySelector('.btn-submit');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
 
-            const formData = {
-                name: document.getElementById('contactName').value,
-                email: document.getElementById('contactEmail').value,
-                phone: document.getElementById('contactPhone').value,
-                service: document.getElementById('contactService').value,
-                message: document.getElementById('contactMessage').value
-            };
+                const formData = {
+                    name: document.getElementById('contactName').value,
+                    email: document.getElementById('contactEmail').value,
+                    phone: document.getElementById('contactPhone').value,
+                    service: document.getElementById('contactService').value,
+                    message: document.getElementById('contactMessage').value
+                };
 
-            // Envoyer email
-            envoyerEmailContact(formData);
+                // Envoyer email
+                envoyerEmailContact(formData);
 
-            // Reset form
-            contactForm.reset();
-            afficherNotification('✅ Message sent successfully! We\'ll get back to you soon.');
+                // Reset form
+                contactForm.reset();
+                afficherNotification('✅ Message sent successfully! We\'ll get back to you soon.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            } catch (error) {
+                console.error('Error submitting contact form:', error);
+                afficherNotification('❌ Error sending message. Please try again.');
+                const submitBtn = document.querySelector('.btn-submit');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
         });
     }
 });
@@ -125,14 +138,12 @@ function chargerServices() {
     }
 }
 
-
 function retirer(id) {
     panier = panier.filter(item => item.id !== id);
     sauvegarderPanier();
     afficherCartModal();
     mettreAJourBadge();
 }
-
 
 function sauvegarderReservation(total, clientEmail, clientName) {
     const reservations = JSON.parse(localStorage.getItem('cleanhome_reservations')) || [];
@@ -149,7 +160,6 @@ function sauvegarderReservation(total, clientEmail, clientName) {
     reservations.push(reservation);
     localStorage.setItem('cleanhome_reservations', JSON.stringify(reservations));
 }
-
 
 function retirer(id) {
     panier = panier.filter(item => item.id !== id);

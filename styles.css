@@ -19,6 +19,34 @@
     box-sizing: border-box;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary-blue);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 10000;
+    border-radius: 4px;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -173,16 +201,16 @@ body {
 .mobile-menu {
     display: none;
     position: fixed;
-    left: 0;
+    right: 0;
     top: 50px;
     width: 280px;
     height: calc(100vh - 50px);
     background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 50%, #0a0a0a 100%);
     z-index: 999;
-    box-shadow: 8px 0 30px rgba(212, 175, 55, 0.2);
-    transform: translateX(-100%);
+    box-shadow: -8px 0 30px rgba(212, 175, 55, 0.2);
+    transform: translateX(100%);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    border-right: 3px solid var(--primary-blue);
+    border-left: 3px solid var(--primary-blue);
 }
 
 .mobile-menu.active {
@@ -207,13 +235,16 @@ body {
     color: #e8e8e8;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.05em;
-    padding: 18px 30px;
+    font-size: 1.1em;
+    padding: 20px 30px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: block;
     position: relative;
     border-left: 4px solid transparent;
     letter-spacing: 0.5px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
 }
 
 .mobile-nav-links a::before {
@@ -1117,10 +1148,27 @@ footer a:hover {
     cursor: pointer;
     color: #666;
     transition: color 0.3s ease;
+    padding: 10px;
+    margin: -10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .close-modal:hover {
     color: var(--primary-blue);
+}
+
+.btn:focus,
+.btn-submit:focus,
+.close-modal:focus,
+.btn-floating:focus,
+.hamburger:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
 }
 
 .cart-item {
@@ -2121,6 +2169,23 @@ footer {
 
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 }
 
